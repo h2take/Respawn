@@ -20,7 +20,7 @@ const app = express();
 
 // Enable CORS — required so Flutter (or any separate frontend) can call this API
 app.use(cors());
-app.options("*", cors());
+app.options('*splat', cors());
 
 // Set security HTTP headers
 app.use(helmet());
@@ -64,7 +64,7 @@ app.get("/", (req, res) => {
 });
 
 // Catch-all for undefined routes — routes into the central error handler
-app.all("*", (req, res, next) => {
+app.all("*splat", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });
 
